@@ -1,0 +1,173 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+
+.navbar-brand {
+  margin-left: 2rem;
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+
+.nav-link {
+  font-weight: bold;
+  margin-left: 3rem;
+}
+
+/* Footer */
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.f-info-socials {
+  font-size: 1.2rem;
+  margin-right: 2rem;
+}
+
+.f-info-socials i {
+  margin-right: 1rem;
+}
+
+.f-info {
+  text-align: center;
+  height: 8rem;
+  background-color: #ebebeb;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-evenly;
+}
+
+.row {
+  justify-content: center;
+}
+
+h2 {
+  justify-self: center;
+  color: crimson;
+  text-decoration: underline;
+}
+
+/* listingCards */
+.listing-card {
+  border: none !important;
+  margin-bottom: 2rem;
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: cover !important;
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text a {
+  font-weight: 400 !important;
+  color: #000 !important;
+}
+
+.listing-link {
+  text-decoration: none;
+}
+
+/* Card Effect(hovering effect) => Overlay effect */
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+.add-btn {
+  background-color: #f06770 !important;
+  border: none !important;
+}
+
+.edit-btn {
+  background-color: #f06770 !important;
+  border: none !important;
+  color: white;
+}
+
+/* show page */
+.show-img {
+  height: 30vh;
+}
+
+/* Edit and Delete buttons */
+.btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 0.5rem;
+}
+
+/* Edit button */
+.btns a {
+  background-color: dodgerblue !important;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* Delete button */
+.btns form button {
+  background-color: firebrick !important;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Review Section */
+.review-section {
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-section textarea {
+  width: 100%;
+}
