@@ -21,7 +21,6 @@ body {
   font-size: 2rem;
 }
 
-
 .nav-link {
   font-weight: bold;
   margin-left: 3rem;
@@ -81,10 +80,14 @@ h2 {
   margin-bottom: 2rem;
 }
 
+/* index card */
 .card-img-top {
   border-radius: 1rem !important;
   width: 100% !important;
   object-fit: cover !important;
+
+  /* object-fit: contain !important;
+  background-color: #f0f0f0;  */
 }
 
 .card-body {
@@ -123,9 +126,30 @@ h2 {
 
 /* show page */
 .show-img {
-  height: 30vh;
+  /* height: 30vh; */
+  height: auto !important; /* let image height adjust */
+  max-height: 400px; /* max height for large image */
+  border-radius: 1rem !important;
+  object-fit: contain !important;
+  width: 100% !important;
 }
 
+.card-body p.card-text {
+  font-size: 1.25rem; /* larger font for readability*/
+  line-height: 1.6;
+  color: #333;
+}
+
+h2.display-4 {
+  color: #b22222; /* deep crimson */
+  text-transform: uppercase;
+}
+
+.card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem !important;
+  background-color: #fff;
+}
 /* Edit and Delete buttons */
 .btns {
   display: flex;
@@ -170,4 +194,18 @@ h2 {
 
 .review-section textarea {
   width: 100%;
+}
+
+
+/* Optional: Make stars larger and centered */
+.starability-slot label {
+  font-size: 1.8rem;
+  margin: 0 0.1rem;
+}
+
+/* Ensure cards have equal height */
+.card.h-100 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
