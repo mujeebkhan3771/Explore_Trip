@@ -3,30 +3,29 @@
   const mapToken = "<%=process.env.MAP_TOKEN %>";
 </script>
 
-<div class="row mt-3">
-  <div class="col-12 offset-1">
-    <h2><%= listing.title %></h2>
+<div class="row mt-3 justify-content-center">
+  <div class="col-12 text-center">
+    <h2 class="display-4 fw-bold mb-4"><%= listing.title %></h2>
   </div>
-  <div class="card col-6 offset-2 listing-card">
+  <div class="card col-lg-8 col-md-10 col-sm-12 listing-card p-4">
     <img
-      src=" <%= listing.image.url %>"
+      src="<%= listing.image.url %>"
       class="card-img-top show-img"
       alt="listing_image"
     />
-    <div class="card-body">
-      <p class="card-text">
-        <!-- <b>&#8226;<%= listing.title %></b> <br /> -->
+    <div class="card-body pt-4">
+      <p class="card-text fs-5 mb-3">
         &#8226; Owned by : <i><%= listing.owner.username %></i><br />
-        &#8226;<%= listing.description %><br />
-        &#8226;&#8377; <%= listing.price ? listing.price.toLocaleString("en-IN")
-        : "N/A" %> 
-        <br />
-        &#8226;<%= listing.location %> <br />
-        &#8226;<%= listing.country %>
+        &#8226; <%= listing.description %><br />
+        &#8226; &#8377; <%= listing.price ?
+        listing.price.toLocaleString("en-IN") : "N/A" %> >
+        &#8226; <%= listing.location %><br />
+        &#8226; <%= listing.country %>
       </p>
     </div>
   </div>
 </div>
+
 <br />
 
 <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
@@ -40,24 +39,19 @@
 <% } %>
 
 <!-- Review Section -->
-<div class="review-section">
+<div class="review-section mt-5 text-center container">
   <% if(currUser) { %>
-  <h4>Leave a Review</h4>
+  <h4 class="fw-bold mb-4">Leave a Review</h4>
   <form
     action="/listings/<%= listing.id %>/reviews"
     method="POST"
     novalidate
     class="needs-validation"
   >
-    <!-- novalidate to stop default validation 
-     & added bootstrap  validation class -->
-    <!-- We have already implemented bootstrap form valiadation in public then js then script.js -->
-    <!-- script Bootstrap validation implementen in boilerplate
-     as script src="/js/script.js" -->
-
-    <div class="mb-3 mt-3">
-      <label for="rating" class="form-label">Rating</label>
-      <fieldset class="starability-slot">
+    <!-- Rating Section -->
+    <div class="mb-4">
+      <label for="rating" class="form-label fw-semibold">Rating</label>
+      <fieldset class="starability-slot d-flex justify-content-center">
         <input
           type="radio"
           id="no-rate"
@@ -79,47 +73,58 @@
         <label for="first-rate5" title="Amazing">5 stars</label>
       </fieldset>
     </div>
-    <br />
-    <div>
-      <label for="comment" class="form-label">Comments</label>
+
+    <!-- Comment Section -->
+    <div class="mb-3">
+      <label for="comment" class="form-label fw-semibold">Comments</label>
       <textarea
         name="review[comment]"
         id="comment"
-        cols="30"
-        rows="5"
-        class="form-control"
+        class="form-control shadow-sm"
+        rows="4"
+        placeholder="Write something..."
         required
       ></textarea>
-      <div class="invalid-feedback">Please provide comment for review</div>
+      <div class="invalid-feedback">
+        Please provide a comment for the review.
+      </div>
     </div>
-    <button class="btn btn-outline-dark mt-2"><b>Submit</b></button>
+
+    <!-- Submit Button -->
+    <button class="btn btn-dark rounded-pill px-4 py-2 mt-2">Submit</button>
   </form>
   <% } %>
-  <hr />
 
+  <hr class="my-5" />
+
+  <!-- All Reviews Section -->
   <% if(listing.reviews.length > 0) { %>
-  <div class="row">
-    <p><b>All Reviews</b></p>
+  <p class="fw-bold mb-4">All Reviews</p>
+  <div class="row g-4">
     <% for(review of listing.reviews) { %>
-    <div class="card col-6 ms-6 mb-6">
-      <div class="card-body"></div>
-      <h5 class="card-title">@<u><%= review.author.username %></u></h5>
-      <p
-        class="starability-result card-text"
-        data-rating="<%= review.rating %>"
-      ></p>
-      <p class="card-text"><%= review.comment %></p>
-      <!-- <p class="card-text"><%= review.rating %>-Star&#11088;</p> -->
-      <br />
-      <form
-        class="mb-3"
-        method="POST"
-        action="/listings/<%= listing._id %>/reviews/<%= review.id %>?_method=DELETE"
-      >
-        <button class="btn btn-sm btn-dark">Delete</button>
-      </form>
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100 border-0">
+        <div class="card-body">
+          <h6 class="card-title text-muted">
+            @<u><%= review.author.username %></u>
+          </h6>
+          <p
+            class="starability-result card-text"
+            data-rating="<%= review.rating %>"
+          ></p>
+          <p class="card-text"><%= review.comment %></p>
+          <form
+            method="POST"
+            action="/listings/<%= listing._id %>/reviews/<%= review.id %>?_method=DELETE"
+          >
+            <button class="btn btn-sm btn-outline-danger mt-2">Delete</button>
+          </form>
+        </div>
+      </div>
     </div>
     <% } %>
   </div>
   <% } %>
 </div>
+<br />
+<br />
