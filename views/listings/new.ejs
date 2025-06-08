@@ -4,7 +4,6 @@
   <div class="col-12 offset-1 mt-3">
     <h2>Create a new Listing</h2>
 
-    <!-- "novalidate" to stop default browser validation and added class i.e "needs-validation"-->
     <form
       method="POST"
       action="/listings"
@@ -12,9 +11,7 @@
       class="needs-validation"
       enctype="multipart/form-data"
     >
-      <!-- <input name="title" type="text" placeholder="Enter title"> -->
-      <br />
-      <br />
+      <br /><br />
       <div class="mb-2">
         <label for="title" class="form-label">Title </label>
         <input
@@ -27,8 +24,8 @@
         <div class="valid-feedback">Title looks fine!</div>
         <div class="invalid-feedback">Title is mandatory!</div>
       </div>
-      <br />
-      <br />
+
+      <br /><br />
       <div class="mb-2">
         <label for="description" class="form-label">Description </label>
         <textarea
@@ -39,8 +36,8 @@
         ></textarea>
         <div class="invalid-feedback">Please enter a short description!</div>
       </div>
-      <br />
-      <br />
+
+      <br /><br />
       <div class="mb-2">
         <label for="image" class="form-label">Upload Image </label>
         <input
@@ -50,23 +47,34 @@
           required
         />
       </div>
-      <br />
-      <br />
+
+      <br /><br />
       <div class="row">
         <div class="mb-2 col-md-4">
-          <label for="price" class="form-label">Price (&#8377;) </label>
+          <label for="timings[opening]" class="form-label">Opening Time</label>
           <input
-            name="listing[price]"
-            placeholder="Enter price"
-            type="number"
+            name="listing[timings][opening]"
+            type="text"
+            placeholder="e.g., 9:30 AM"
             class="form-control"
             required
           />
-          <!-- type="number" -->
-          <div class="invalid-feedback">Please enter a valid Price!</div>
+          <div class="invalid-feedback">Enter time in format HH:MM AM/PM</div>
         </div>
 
-        <div class="mb-2 col-md-8">
+        <div class="mb-2 col-md-4">
+          <label for="timings[closing]" class="form-label">Closing Time</label>
+          <input
+            name="listing[timings][closing]"
+            type="text"
+            placeholder="e.g., 6:00 PM"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Enter time in format HH:MM AM/PM</div>
+        </div>
+
+        <div class="mb-2 col-md-4">
           <label for="country" class="form-label">Country</label>
           <input
             name="listing[country]"
@@ -78,24 +86,23 @@
           <div class="invalid-feedback">Please enter a valid country!</div>
         </div>
       </div>
-      <br />
-      <br />
+
+      <br /><br />
       <div class="mb-2">
-        <label for="location" class="form-label">Location</label>
+        <label for="location" class="form-label">Location (city, state, country)</label>
         <input
           name="listing[location]"
           type="text"
-          placeholder="Enter location"
+          placeholder="e.g., Mysore Palace , Karnataka, India"
           class="form-control"
           required
         />
         <div class="invalid-feedback">Please enter a valid location!</div>
       </div>
-      <br />
-      <br />
+
+      <br /><br />
       <button class="btn btn-dark add-btn">Add</button>
-      <br />
-      <br />
+      <br /><br />
     </form>
   </div>
 </div>
