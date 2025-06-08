@@ -15,12 +15,19 @@
     />
     <div class="card-body pt-4">
       <p class="card-text fs-5 mb-3">
-        &#8226; Owned by : <i><%= listing.owner.username %></i><br />
+       <i> &#8226; Listing Owned by : <%= listing.owner.username %></i><br />
         &#8226; <%= listing.description %><br />
-        &#8226; &#8377; <%= listing.price ?
-        listing.price.toLocaleString("en-IN") : "N/A" %> 
-       <br />
+        &#8226; &#128336; <b>Timings:</b> <%= listing.timings?.opening || "N/A"
+        %> - <%= listing.timings?.closing || "N/A" %><br />
         &#8226; <%= listing.location %><br />
+        <iframe
+          src="https://www.google.com/maps?q=<%= listing.location %>&output=embed"
+          width="100%"
+          height="300"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
         &#8226; <%= listing.country %>
       </p>
     </div>
