@@ -16,9 +16,9 @@ body {
 }
 
 .navbar-brand {
-  margin-left: 2rem;
+  margin-left: 0.2rem;
   color: #fe424d;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .nav-link {
