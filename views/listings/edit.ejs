@@ -10,6 +10,7 @@
         class="needs-validation"
         enctype="multipart/form-data"
       >
+        <!-- Title -->
         <div class="mb-1">
           <label for="title" class="form-label">Title </label>
           <input
@@ -22,47 +23,72 @@
           <div class="valid-feedback">Title looks fine!</div>
           <div class="invalid-feedback">Title is mandatory!</div>
         </div>
-        <br />
-        <br />
+
+        <br /><br />
+        <!-- Description -->
         <div class="mb-1">
           <label for="description" class="form-label">Description</label>
           <textarea name="listing[description]" class="form-control" required>
-<%= listing.description %> </textarea
+<%= listing.description %></textarea
           >
           <div class="invalid-feedback">Please enter a short description!</div>
         </div>
-        <br />
-        <br />
-        <div class="mb-1" style="height: 13rem; width: 25rem  ">
-         <u> Current Listing Image</u>
-          <br />  
+
+        <br /><br />
+        <!-- Current Image -->
+        <div class="mb-1" style="height: 13rem; width: 25rem">
+          <u>Current Listing Image</u><br />
           <img
             src="<%= listing.image.url %>"
             style="height: 100%; width: 100%; object-fit: cover"
           />
         </div>
 
-        <br />
-        <br />
+        <br /><br />
+        <!-- Upload New Image -->
         <div class="mb-1">
           <label for="image" class="form-label">Upload New Image</label>
           <input name="listing[image]" type="file" class="form-control" />
         </div>
-        <br />
-        <br />
-        <div class="mb-1">
-          <label for="price" class="form-label">Price</label>
-          <input
-            name="listing[price]"
-            type="number"
-            value="<%= listing.price %>"
-            class="form-control"
-            required
-          />
-          <div class="invalid-feedback">Please enter a valid Price!</div>
+
+        <br /><br />
+        <!-- Timings -->
+        <div class="row">
+          <div class="mb-1 col-md-6">
+            <label for="timings[opening]" class="form-label"
+              >Opening Time</label
+            >
+            <input
+              name="listing[timings][opening]"
+              type="text"
+              value="<%= listing.timings?.opening || '' %>"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">
+              Enter a valid opening time (e.g., 9:30 AM)
+            </div>
+          </div>
+
+          <div class="mb-1 col-md-6">
+            <label for="timings[closing]" class="form-label"
+              >Closing Time</label
+            >
+            <input
+              name="listing[timings][closing]"
+              type="text"
+              value="<%= listing.timings?.closing || '' %>"
+              class="form-control"
+              required
+            />
+            <div class="invalid-feedback">
+              Enter a valid closing time (e.g., 6:00 PM)
+            </div>
+          </div>
         </div>
-        <br />
-        <br />
+
+        <br /><br />
+        <!-- Location -->
         <div class="mb-1">
           <label for="location" class="form-label">Location</label>
           <input
@@ -74,8 +100,9 @@
           />
           <div class="invalid-feedback">Please enter a valid location!</div>
         </div>
-        <br />
-        <br />
+
+        <br /><br />
+        <!-- Country -->
         <div class="mb-1">
           <label for="country" class="form-label">Country</label>
           <input
@@ -87,12 +114,11 @@
           />
           <div class="invalid-feedback">Please enter a valid country!</div>
         </div>
-        <br />
-        <br />
+
+        <br /><br />
         <button class="btn edit-btn btn-dark mt-2">Edit</button>
       </form>
     </div>
   </div>
-  <br />
-  <br />
+  <br /><br />
 </body>
