@@ -10,7 +10,7 @@ module.exports.isLoggedIn = (req, res, next) => {
     req.session.redirectUrl = req.originalUrl;
     req.flash(
       "error",
-      "You must be logged in to Create, Edit and Delete the listing/review !"
+      "You must be logged in to Create, Edit or Delete listing!"
     );
     return res.redirect("/login");
   }
