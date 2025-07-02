@@ -108,11 +108,11 @@ app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hi . I am Mohammed Mujeeb Khan S, and I am currently pursuing my Bachelor's degree in Computer Science and Engineering with a specialization in Data Science (CSE-DS) at BITM college . As an undergraduate student, I am passionate about exploring the field of data science and developing strong technical and analytical skills to solve real-world problems. This project is designed as per innovation and design thinking (idt) which involves sequence of steps. "Empathy": Designed considering real pain points of tourists like scattered information, language barriers, and lack of planning tools.
-"Define": Scoped the problem to help tourists explore Karnataka effectively with authentic data.
-"Ideate": Brainstormed a centralized digital solution with smart listings.
-"Prototype": Developed an intuitive web interface with dynamic data rendering.
-"Test": Tested project with students of the class.");
+  res.send("Hi . I am Mohammed Mujeeb Khan S, and I am currently pursuing my Bachelor's degree in Computer Science and Engineering with a specialization in Data Science (CSE-DS) at BITM college . As an undergraduate student, I am passionate about exploring the field of data science and developing strong technical and analytical skills to solve real-world problems. This project is designed as per innovation and design thinking (idt) which involves sequence of steps. [Empathy]": Designed considering real pain points of tourists like scattered information, language barriers, and lack of planning tools.
+[Define]: Scoped the problem to help tourists explore Karnataka effectively with authentic data.
+[Ideate]: Brainstormed a centralized digital solution with smart listings.
+[Prototype]: Developed an intuitive web interface with dynamic data rendering.
+[Test]: Tested project with students of the class.");
 });
 
 app.all("*", (req, res, next) => {
