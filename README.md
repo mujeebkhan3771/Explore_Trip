@@ -12,6 +12,7 @@
 - View top historical tourist destinations of Karnataka
 - Explore details including images, timings, and location on map
 - Submit reviews and experiences of visited places
+- Adding Listings
 - Discover Google Maps integration for accurate directions
 
 ---
